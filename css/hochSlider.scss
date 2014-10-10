@@ -1,3 +1,16 @@
+/*Vars*/
+//swift do google: cubic-bezier(0.4,.2,0,1);
+$timingFunction: cubic-bezier(0.4,.2,0,1);
+
+@import 'mixins\mixins';
+@import 'mixins\base64img';
+
+.animated{@include transition(all, 0.3s, $timingFunction,0ms);}
+//Opacidade padrão para os botões
+.hoverOpacity{
+    @include Opacity(0.85);
+}
+
 @include keyframes(loading) {
     0% {
         width:0%;
@@ -101,6 +114,7 @@
     margin: 0 auto;
     padding: 20px 0;
     position: relative;
+    width:300px;
     &.show-swipe{
         .navigator{display: none;}
         &:before{display: block;}

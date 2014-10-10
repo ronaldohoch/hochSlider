@@ -1,0 +1,120 @@
+/*.box {
+ *	@include transition(all, 0.2s, $timingFunction,0);
+ *}
+ */
+@mixin transition($transition-property, $transition-time, $method, $delay) {
+    -webkit-transition: $transition-property $transition-time $method $delay;
+    -moz-transition: $transition-property $transition-time $method $delay;
+    -ms-transition: $transition-property $transition-time $method $delay;
+    -o-transition: $transition-property $transition-time $method $delay;
+    transition: $transition-property $transition-time $method $delay;
+}
+/*
+ * @include Opacity(0.5); @include Opacity(1);
+ */
+@mixin Opacity($value){
+	$IEValue: $value*100;
+	opacity: $value;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+	filter: alpha(opacity=$IEValue);
+}
+/*
+ * @include bx(0, 0, 0, 2,rgb(111, 178, 0))
+ */
+@mixin bx($Hlength, $Vlenght, $blur, $size, $color){
+	-webkit-box-shadow: $Hlength $Vlenght $blur $size $color;
+	-moz-box-shadow:    $Hlength $Vlenght $blur $size $color;
+	box-shadow:         $Hlength $Vlenght $blur $size $color;
+}
+/*
+ * @include bxInset(0, 0, 0, 2,rgb(111, 178, 0) )
+ */
+@mixin bxInset($Hlength, $Vlenght, $blur, $size, $color){
+	-webkit-box-shadow: inset $Hlength $Vlenght $blur $size $color;
+	-moz-box-shadow:   inset $Hlength $Vlenght $blur $size $color;
+	box-shadow:       inset $Hlength $Vlenght $blur $size $color;
+}
+/*
+ * @include  scale(1);
+ */
+@mixin scale ($factor) {
+	-webkit-transform:   scale($factor);
+	-moz-transform: 	 scale($factor);
+	-ms-transform: 		 scale($factor);
+	-o-transform: 		 scale($factor);
+	transform:  		 scale($factor);
+}
+/*
+ * @include  transform(translate(10px,10px))
+ */
+@mixin transform($string){
+	-webkit-transform:   $string;
+	-moz-transform: 	 $string;
+	-ms-transform: 		 $string;
+	-o-transform: 		 $string;
+	transform:  		 $string;
+}
+/*
+ * @include  origin(0% 0%)
+ */
+@mixin origin($value){
+	-webkit-transform-origin:	$value;
+	-ms-transform-origin:		$value;
+	transform-origin:			$value;
+}
+/*
+	@include keyframes(bgcolor) {
+	  0% {
+	    background-color: #ffccf2;
+	  }
+	  100% {
+	    background-color: #ccffff;
+	  } 
+	}
+ */
+
+// keyframes mixin
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content; 
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  } 
+}
+/*
+ * @include animation (bgcolor, 300ms, 0, $timingFunction)
+ */
+@mixin animation ($name, $duration: 300ms, $delay: 0, $ease: $timingFunction, $direction: alternate ) {
+	-webkit-animation: $name $duration $delay $ease $direction infinite;
+	-moz-animation:    $name $duration $delay $ease $direction infinite;
+	-ms-animation:     $name $duration $delay $ease $direction infinite;
+	-o-animation:      $name $duration $delay $ease $direction infinite;
+	animation:     	   $name $duration $delay $ease $direction infinite;
+}
+/*
+ * @include animation (bgcolor, 300ms, 0, $timingFunction)
+ */
+@mixin animationForwards ($name, $duration: 300ms, $delay: 0, $ease: $timingFunction, $direction: alternate ) {
+	-webkit-animation: $name $duration $delay $ease $direction forwards;
+	-moz-animation:    $name $duration $delay $ease $direction forwards;
+	-ms-animation:     $name $duration $delay $ease $direction forwards;
+	-o-animation:      $name $duration $delay $ease $direction forwards;
+	animation:         $name $duration $delay $ease $direction forwards;
+}
+/*
+ * @include animationRepeat (bgcolor, 300ms, 0, $timingFunction)
+ */
+@mixin animationRepeat ($name, $duration: 300ms, $delay: 0, $ease: $timingFunction, $direction: alternate,$repeat:infinite ) {
+	-webkit-animation: $name $duration $delay $ease $direction $repeat;
+	-moz-animation:    $name $duration $delay $ease $direction $repeat;
+	-ms-animation:     $name $duration $delay $ease $direction $repeat;
+	-o-animation:      $name $duration $delay $ease $direction $repeat;
+	animation:         $name $duration $delay $ease $direction $repeat;
+}

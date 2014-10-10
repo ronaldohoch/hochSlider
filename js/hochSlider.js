@@ -154,3 +154,5 @@ $.fn.Hoch = function(VertSlide,customClass){
         });
     })
 }
+//Usage
+$(".slideWrapper").Hoch(false);
